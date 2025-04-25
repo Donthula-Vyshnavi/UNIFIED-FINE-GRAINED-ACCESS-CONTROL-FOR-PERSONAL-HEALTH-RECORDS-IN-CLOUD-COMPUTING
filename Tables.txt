@@ -1,0 +1,173 @@
+create database Unified;
+
+use Unified;
+
+CREATE TABLE `admin` (
+  `name` text,
+  `pass` text
+);
+
+INSERT INTO `admin` VALUES ('admin','admin');
+
+CREATE TABLE `attacker` (
+  `id` int(11) NOT NULL auto_increment,
+  `username` text,
+  `patientname` text,
+  `digital_sign` text,
+  `contents` longtext,
+  `dt` text,
+  PRIMARY KEY  (`id`)
+);
+
+CREATE TABLE `attackersearch` (
+  `id` int(11) NOT NULL auto_increment,
+  `username` text,
+  `keyword` text,
+  `dt` text,
+  PRIMARY KEY  (`id`)
+);
+
+CREATE TABLE `backup` (
+  `id` int(11) NOT NULL auto_increment,
+  `owner` varchar(45) default NULL,
+  `patientname` varchar(45) default NULL,
+  `bloodgroup` varchar(45) default NULL,
+  `disease` varchar(45) default NULL,
+  `age` varchar(45) default NULL,
+  `dob` varchar(45) default NULL,
+  `gender` varchar(45) default NULL,
+  `mobile` varchar(45) default NULL,
+  `email` varchar(45) default NULL,
+  `city` varchar(45) default NULL,
+  `address` varchar(45) default NULL,
+  `pincode` varchar(45) default NULL,
+  `fname` varchar(45) default NULL,
+  `contents` longtext,
+  `digital_sign` longtext,
+  `date` varchar(45) default NULL,
+  PRIMARY KEY  (`id`)
+);
+
+CREATE TABLE `owner` (
+  `id` int(11) NOT NULL auto_increment,
+  `username` varchar(45) default NULL,
+  `password` varchar(45) default NULL,
+  `email` varchar(45) default NULL,
+  `mobile` varchar(45) default NULL,
+  `address` varchar(45) default NULL,
+  `dob` varchar(45) default NULL,
+  `gender` varchar(45) default NULL,
+  `status` varchar(45) default NULL,
+  `image` longblob,
+  PRIMARY KEY  (`id`)
+);
+
+CREATE TABLE `patients` (
+  `id` int(11) NOT NULL auto_increment,
+  `owner` varchar(45) default NULL,
+  `patientname` varchar(45) default NULL,
+  `bloodgroup` varchar(45) default NULL,
+  `disease` varchar(45) default NULL,
+  `age` varchar(45) default NULL,
+  `dob` varchar(45) default NULL,
+  `gender` varchar(45) default NULL,
+  `mobile` varchar(45) default NULL,
+  `email` varchar(45) default NULL,
+  `city` varchar(45) default NULL,
+  `address` varchar(45) default NULL,
+  `pincode` varchar(45) default NULL,
+  `fname` varchar(45) default NULL,
+  `contents` longtext,
+  `digital_sign` longtext,
+  `date` varchar(45) default NULL,
+  PRIMARY KEY  (`id`)
+);
+
+CREATE TABLE `permission` (
+  `id` int(11) NOT NULL auto_increment,
+  `username` text,
+  `patientname` text,
+  `email` text,
+  `status` text,
+  `dt` text,
+  PRIMARY KEY  (`id`)
+);
+
+CREATE TABLE `publish` (
+  `id` int(11) NOT NULL auto_increment,
+  `owner` varchar(45) default NULL,
+  `patientname` varchar(45) default NULL,
+  `bloodgroup` varchar(45) default NULL,
+  `disease` varchar(45) default NULL,
+  `age` varchar(45) default NULL,
+  `dob` varchar(45) default NULL,
+  `gender` varchar(45) default NULL,
+  `mobile` varchar(45) default NULL,
+  `email` varchar(45) default NULL,
+  `city` varchar(45) default NULL,
+  `address` varchar(45) default NULL,
+  `pincode` varchar(45) default NULL,
+  `fname` varchar(45) default NULL,
+  `contents` longtext,
+  `digital_sign` longtext,
+  `publishdate` varchar(45) default NULL,
+  PRIMARY KEY  (`id`)
+);
+
+CREATE TABLE `publisher` (
+  `id` int(11) NOT NULL auto_increment,
+  `username` varchar(45) default NULL,
+  `password` varchar(45) default NULL,
+  `email` varchar(45) default NULL,
+  `mobile` varchar(45) default NULL,
+  `address` varchar(45) default NULL,
+  `dob` varchar(45) default NULL,
+  `gender` varchar(45) default NULL,
+  `status` varchar(45) default NULL,
+  `image` longblob,
+  PRIMARY KEY  (`id`)
+);
+
+CREATE TABLE `search` (
+  `id` int(11) NOT NULL auto_increment,
+  `username` text,
+  `keyword` text,
+  `dt` text,
+  PRIMARY KEY  (`id`)
+);
+
+CREATE TABLE `searchfound` (
+  `id` int(11) NOT NULL auto_increment,
+  `user` text,
+  `keyword` text,
+  `patientfound` text,
+  `patientemail` text,
+  `dt` text,
+  PRIMARY KEY  (`id`)
+);
+
+CREATE TABLE `unmatched` (
+  `id` int(11) NOT NULL auto_increment,
+  `user` text,
+  `keyword` text,
+  `patientfound` text,
+  `patientemail` text,
+  `dt` text,
+  PRIMARY KEY  (`id`)
+);
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL auto_increment,
+  `username` varchar(45) default NULL,
+  `password` varchar(45) default NULL,
+  `email` varchar(45) default NULL,
+  `mobile` varchar(45) default NULL,
+  `address` varchar(45) default NULL,
+  `dob` varchar(45) default NULL,
+  `gender` varchar(45) default NULL,
+  `status` varchar(45) default NULL,
+  `image` longblob,
+  PRIMARY KEY  (`id`)
+);
+
+ 
